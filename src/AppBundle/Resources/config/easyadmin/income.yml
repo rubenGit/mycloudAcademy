@@ -1,0 +1,29 @@
+easy_admin:
+    entities:
+        Income:
+            class: AppBundle\Entity\Income
+            help: ''
+            list:
+                fields:
+                - { property: import }
+                - { property: type }
+                - { property: dataCreated }
+                - { property: dataUpdated }
+
+                actions:
+                     - { name: 'edit', icon: 'pencil', label: '' }
+                     - { name: 'show', icon: 'search', label: '' }
+                     - { name: 'delete', icon: 'trash', label: '' }
+            show:
+                title: "Marca"
+                fields:
+                - { property: id }
+                - { property: import }
+                - { property: type }
+                - { property: dataCreated }
+                - { property: dataUpdated }
+            form:
+                title: "Marca"
+                fields:
+                - { property: import }
+                - { property: type }

@@ -1,0 +1,134 @@
+easy_admin:
+    entities:
+        Client:
+            class: AppBundle\Entity\Client
+            help: ''
+            list:
+                fields:
+#                PERSONAL DATA
+                    - { property: name }
+                    - { property: surname }
+                    - { property: levelOfStudies }
+                    - { property: levelOfknowledge }
+                    - { property: allergies }
+                    - { property: birthDate }
+                    - { property: identificationDocument }
+                    - { property: identificationNumber }
+                    - { property: motherTongue }
+                    - { property: phone }
+                    - { property: phone2 }
+                    - { property: mail }
+#                GEOGRAPHICAL DATA
+                    - { property: address }
+                    - { property: province }
+                    - { property: postalCode }
+                    - { property: location }
+                    - { property: country }
+                    - { property: nationality }
+#                FAMILY DATA
+                    - { property: nationality }
+                    - { property: fatherName }
+                    - { property: fatherSurname }
+                    - { property: phoneFather }
+                    - { property: motherName }
+                    - { property: motherSurname }
+                    - { property: motherPhone }
+#                EXTRA INFO
+                    - { property: youMetUsFrom }
+                    - { property: observations }
+                    - { property: active }
+                    - { property: type }
+                    - { property: groups }
+                    - { property: dataCreated }
+                    - { property: dataUpdated}
+
+                actions:
+                     - { name: 'edit', icon: 'pencil', label: '' }
+                     - { name: 'show', icon: 'search', label: '' }
+                     - { name: 'delete', icon: 'trash', label: '' }
+
+            show:
+                title: "Cliente"
+                fields:
+                    - { property: id, label: 'Id' }
+#                PERSONAL DATA
+                    - { property: name }
+                    - { property: surname }
+                    - { property: levelOfStudies }
+                    - { property: levelOfknowledge }
+                    - { property: allergies }
+                    - { property: birthDate }
+                    - { property: identificationDocument }
+                    - { property: identificationNumber }
+                    - { property: motherTongue }
+                    - { property: phone }
+                    - { property: phone2 }
+                    - { property: mail }
+
+#                GEOGRAPHICAL DATA
+                    - { property: address }
+                    - { property: province }
+                    - { property: postalCode }
+                    - { property: location }
+                    - { property: country }
+                    - { property: nationality }
+
+#                FAMILY DATA
+                    - { property: nationality }
+                    - { property: fatherName }
+                    - { property: fatherSurname }
+                    - { property: phoneFather }
+                    - { property: motherName }
+                    - { property: motherSurname }
+                    - { property: motherPhone }
+#                EXTRA INFO
+                    - { property: youMetUsFrom }
+                    - { property: observations }
+                    - { property: active }
+                    - { property: type }
+                    - { property: groups }
+                    - { property: dataCreated }
+                    - { property: dataUpdated}
+
+
+            form:
+                fields:
+#                PERSONAL DATA
+                    - { type: 'tab' , label: 'PERSONAL DATA', icon: 'user' }
+                    - { property: name }
+                    - { property: surname }
+                    - { property: levelOfStudies }
+                    - { property: levelOfknowledge }
+                    - { property: allergies }
+                    - { property: birthDate }
+                    - { property: identificationDocument }
+                    - { property: identificationNumber }
+                    - { property: motherTongue }
+                    - { property: phone }
+                    - { property: phone2 }
+                    - { property: mail }
+
+#                GEOGRAPHICAL DATA
+                    - { type: 'tab' , label: 'GEOGRAFHICAL DATA', icon: 'user' }
+                    - { property: address }
+                    - { property: province }
+                    - { property: postalCode }
+                    - { property: location }
+                    - { property: country }
+                    - { property: nationality }
+#                FAMILY DATA
+                    - { type: 'tab' , label: 'FAMILY DATA', icon: 'user' }
+                    - { property: nationality }
+                    - { property: fatherName }
+                    - { property: fatherSurname }
+                    - { property: phoneFather }
+                    - { property: motherName }
+                    - { property: motherSurname }
+                    - { property: motherPhone }
+#                EXTRA INFO
+                    - { type: 'tab' , label: 'EXTRA INFO DATA', icon: 'user' }
+                    - { property: youMetUsFrom }
+                    - { property: observations }
+                    - { property: active }
+                    - { property: type }
+

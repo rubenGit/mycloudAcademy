@@ -1,0 +1,46 @@
+easy_admin:
+    entities:
+        GroupSt:
+            class: AppBundle\Entity\GroupSt
+            help: ''
+            list:
+                fields:
+                - { property: name}
+                - { property: courses}
+                - { property: classrooms}
+                - { property: employees}
+                - { property: clients}
+                - { property: timeTables}
+                - { property: observations }
+                - { property: dataUpdated }
+
+
+                actions:
+                     - { name: 'edit', icon: 'pencil', label: '' }
+                     - { name: 'show', icon: 'search', label: '' }
+                     - { name: 'delete', icon: 'trash', label: '' }
+            show:
+                fields:
+                - { property: id }
+                - { property: name}
+                - { property: courses}
+                - { property: classrooms}
+                - { property: employees}
+                - { property: clients}
+                - { property: timeTables}
+                - { property: observations }
+                - { property: dataUpdated }
+            form:
+                fields:
+                - { property: name}
+                - { property: courses}
+                - { property: classrooms}
+                - { property: employees}
+                - { property: clients}
+                - { property: timeTables}
+                - { property: observations }
+
+
+
+
+

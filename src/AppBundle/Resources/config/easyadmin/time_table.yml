@@ -1,0 +1,35 @@
+easy_admin:
+    entities:
+        TimeTable:
+            class: AppBundle\Entity\TimeTable
+            help: ''
+            list:
+                fields:
+                - { property: days }
+                - { property: hours }
+                - { property: groups }
+                - { property: observations }
+                - { property: dataUpdated }
+
+                actions:
+                     - { name: 'edit', icon: 'pencil', label: '' }
+                     - { name: 'show', icon: 'search', label: '' }
+                     - { name: 'delete', icon: 'trash', label: '' }
+            show:
+                fields:
+                - { property: days }
+                - { property: hours }
+                - { property: groups }
+                - { property: observations }
+                - { property: dataUpdated }
+            form:
+                fields:
+                - { property: days }
+                - { property: hours }
+                - { property: groups }
+                - { property: observations }
+
+
+
+
+

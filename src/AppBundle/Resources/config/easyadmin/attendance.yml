@@ -1,0 +1,32 @@
+easy_admin:
+    entities:
+        Attendance:
+            class: AppBundle\Entity\Attendance
+            help: ''
+            list:
+                fields:
+                - { property: clients }
+                - { property: groupSt }
+                - { property: observations }
+                - { property: dataUpdated }
+
+                actions:
+                     - { name: 'edit', icon: 'pencil', label: '' }
+                     - { name: 'show', icon: 'search', label: '' }
+                     - { name: 'delete', icon: 'trash', label: '' }
+            show:
+                fields:
+                - { property: id }
+                - { property: clients }
+                - { property: groupSt }
+                - { property: observations }
+                - { property: dataUpdated }
+            form:
+                fields:
+                - { property: clients }
+                - { property: groupSt }
+                - { property: observations }
+
+
+
+

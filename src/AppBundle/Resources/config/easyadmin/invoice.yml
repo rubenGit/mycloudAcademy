@@ -1,0 +1,39 @@
+easy_admin:
+    entities:
+        Invoice:
+            class: AppBundle\Entity\Invoice
+            help: ''
+            list:
+#                dql_filter: 'entity.status=2'
+
+                fields:
+                - { property: status }
+                - { property: client }
+                - { property: total }
+                - { property: discount }
+                - { property: dataCreated }
+                - { property: dataUpdated }
+
+                actions:
+                     - { name: 'edit', icon: 'pencil', label: '' }
+                     - { name: 'show', icon: 'search', label: '' }
+                     - { name: 'delete', icon: 'trash', label: '' }
+            show:
+                fields:
+                - { property: status }
+                - { property: client }
+                - { property: total }
+                - { property: discount }
+                - { property: dataCreated }
+                - { property: dataUpdated }
+            form:
+                fields:
+                - { property: status, type: 'choice', type_options: { choices: {'DRAFT': 'DRAFT', 'PENDING OF PAID': 'PENDING', 'PAID': 'PAID', 'CANCELLED': 'CANCELLED' }} }
+                - { property: client }
+                - { property: total,  type: 'money', type_options: { currency: 'EUR' } }
+                - { property: discount }
+                - { property: dataCreated, type_options: { widget: 'single_text' } }
+
+
+
+

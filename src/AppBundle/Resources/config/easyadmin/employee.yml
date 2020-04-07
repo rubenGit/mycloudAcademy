@@ -1,0 +1,136 @@
+easy_admin:
+    entities:
+        Employee:
+            class: AppBundle\Entity\Employee
+            help: ''
+            list:
+                fields:
+#                PERSONAL DATA
+                    - { property: name }
+                    - { property: surname }
+                    - { property: identificationDocument }
+                    - { property: identificationNumber }
+                    - { property: email }
+                    - { property: address }
+                    - { property: country }
+                    - { property: postalCode }
+                    - { property: province }
+                    - { property: location }
+                    - { property: phone }
+                    - { property: phone2 }
+                    - { property: birthDate }
+                    - { property: nationality }
+#                ECONOMIC DATA
+                    - { property: amountPerHour }
+                    - { property: fixedMonthAmount }
+                    - { property: percentageForDebtsOrCharges }
+                    - { property: bankEntity }
+                    - { property: bankAccountNumber }
+                    - { property: iban }
+                    - { property: swiftBic }
+#                WORKING DATA
+                    - { property: curriculum   }
+
+                    - { property: numberSocialSecurity }
+                    - { property: typeContract }
+                    - { property: seniorityInCompany }
+                    - { property: contractHours }
+                    - { property: timeOffTemporary }
+                    - { property: timeOffDefinitive }
+                    - { property: dataCreated }
+                    - { property: dataUpdated }
+#                EXTRA INFO
+                    - { property: active }
+                    - { property: type }
+                    - { property: groups }
+                    - { property: observations }
+                actions:
+                     - { name: 'edit', icon: 'pencil', label: '' }
+                     - { name: 'show', icon: 'search', label: '' }
+                     - { name: 'delete', icon: 'trash', label: '' }
+            show:
+                fields:
+#                PERSONAL DATA
+                    - { property: id }
+                    - { property: name }
+                    - { property: surname }
+                    - { property: identificationDocument }
+                    - { property: identificationNumber }
+                    - { property: email }
+                    - { property: address }
+                    - { property: country }
+                    - { property: postalCode }
+                    - { property: province }
+                    - { property: location }
+                    - { property: phone }
+                    - { property: phone2 }
+                    - { property: birthDate }
+                    - { property: nationality }
+#                ECONOMIC DATA
+                    - { property: amountPerHour }
+                    - { property: fixedMonthAmount }
+                    - { property: percentageForDebtsOrCharges }
+                    - { property: bankEntity }
+                    - { property: bankAccountNumber }
+                    - { property: iban }
+                    - { property: swiftBic }
+#                WORKING DATA
+                    - { property: 'curriculum' }
+                    - { property: numberSocialSecurity }
+                    - { property: typeContract }
+                    - { property: seniorityInCompany }
+                    - { property: contractHours }
+                    - { property: timeOffTemporary }
+                    - { property: timeOffDefinitive }
+                    - { property: dataCreated }
+                    - { property: dataUpdated }
+#                EXTRA INFO
+                    - { property: active }
+                    - { property: type }
+                    - { property: groups }
+                    - { property: observations }
+
+            form:
+                fields:
+                    - { type: 'tab' , label: 'PERSONAL DATA', icon: 'user' }
+#                PERSONAL DATA
+                    - { property: name }
+                    - { property: surname }
+                    - { property: identificationDocument }
+                    - { property: identificationNumber }
+                    - { property: email }
+                    - { property: address }
+                    - { property: country }
+                    - { property: postalCode }
+                    - { property: province }
+                    - { property: location }
+                    - { property: phone }
+                    - { property: phone2 }
+                    - { property: birthDate }
+                    - { property: nationality }
+#                ECONOMIC DATA
+                    - { type: 'tab' , label: 'ECONOMIC DATA', icon: 'user' }
+                    - { property: amountPerHour }
+                    - { property: fixedMonthAmount }
+                    - { property: percentageForDebtsOrCharges }
+                    - { property: bankEntity }
+                    - { property: bankAccountNumber }
+                    - { property: iban }
+                    - { property: swiftBic }
+#                WORKING DATA
+                    - { type: 'tab' , label: 'WORKING DATA', icon: 'user' }
+                    - { property: 'curriculum'}
+                    - { property: numberSocialSecurity }
+                    - { property: typeContract }
+                    - { property: seniorityInCompany }
+                    - { property: contractHours }
+                    - { property: timeOffTemporary }
+                    - { property: timeOffDefinitive }
+#                EXTRA INFO
+                    - { type: 'tab' , label: 'EXTRA INFO DATA', icon: 'user' }
+                    - { property: active }
+                    - { property: type }
+                    - { property: groups }
+                    - { property: observations }
+
+

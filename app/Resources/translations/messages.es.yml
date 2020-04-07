@@ -1,0 +1,83 @@
+action.save: Guardar Ahora
+action.new: Crear
+Home: Menu Principal
+Personal: Personas
+Client: Cliente
+Clients: Clientes
+ClientType: Tipo de Cliente
+Employee: Empleado
+Employees: Empleados
+EmployeeType: Tipo de Empleado
+Organization: Organizacion
+Course: Curso
+Courses: Cursos
+GroupSt: Grupo
+Group st: Grupo
+Classroom: Clase
+Classrooms: Clases
+Attendance: Asistencia
+TimeTable: Horarios
+Time tables: Horarios
+Finance: Finanzas
+Expense: Gastos
+Income: Ingresos
+Invoice: Facturas
+Import: Importe
+Type: Tipo
+Data created: Fecha Creacion
+Data updated: Fecha Actualizacion
+Name: Nombre
+Academic year: Año academico
+Category: Categoria
+Periodic price: Precio periodico
+Price hour: Precio hora
+Discount: Descuento
+Final price: Precio Final
+Groups: Grupos
+Observations: Observaciones
+Capacity: Capacidad
+External: Externa
+Surname: Apellido
+Level of studies: Nivel de estudios
+Level ofknowledge: Nivel de Conocimientos
+Allergies: Alergias
+Birth date: Fecha Nacimiento
+Identification document: Documento de identificacion
+Identification number: Numero de identificacion
+Mother tongue: Lengua Materna
+Phone: Telefono
+Phone2: Telefono 2
+Mail: Email
+Address: Direccion
+Province: Provincia
+Postal code: Codigo Postal
+Location: Localizacion
+Country: Pais
+Nationality: Nacionalidad
+Father name: Nombre del Padre
+Father surname: Apellido del Padre
+Phone father: Telefono del Padre
+Mother name: Nombre de la Madre
+Mother surname: Apellido de la Madre
+Mother phone: Telefono de la Madre
+You met us from: Como nos conociste
+Active: Activo
+Description: Descripcion
+Amount per hour: Cantidad por Hora
+Fixed month amount: Cantidad Fija al Mes
+Percentage for debts or charges: Porcentaje de Deudas o Cargos
+Bank entity: Entidad Bancaria
+Bank account number: Numero de Cuenta Bancaria
+Iban: Iban
+Swift bic: Swift/Bic
+Curriculum: Curriculum
+Number social security: Numero de la seguridad social
+Type contract: Tipo de contracto
+Seniority in company: Antigüedad en la compañia
+Contract hours: Horas de Contrato
+Time off temporary: Baja temporal
+Time off definitive: Baja definitiva
+Status: Estado
+
+
+

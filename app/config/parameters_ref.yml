@@ -1,0 +1,11 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_host: 127.0.0.1
+    database_driver: pdo_mysql
+    database_port: null
+    database_name: mycloudacademy
+    database_user: root
+    database_password: null
+    mailer_transport: smtp
+
+    secret: b56ba3da7b86f117b61c77fe5a30a8123c255bf9

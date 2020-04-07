@@ -1,0 +1,198 @@
+{% extends '@EasyAdmin/default/layout.html.twig' %}
+{% set _content_title = 'Admin dashboard' %}
+{% block page_title -%}
+    {{ _content_title }}
+{% endblock %}
+{% block content_header %}
+    <h1 class="title">{{ _content_title }}</h1>
+{% endblock %}
+{% block content %}
+
+
+
+
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs nav-justified">
+        <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab" href="#panel1" role="tab">TODAY</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#panel2" role="tab">YESTERDAY</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#panel3" role="tab">LAST 7 DAYS</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#panel4" role="tab">LAST 30 DAYS</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#panel5" role="tab">LAST 90 DAYS</a>
+        </li>
+    </ul>
+
+    <!-- Tab panels -->
+    <div class="tab-content card">
+        <!--Panel 1-->
+        <div class="tab-pane fade in show active" id="panel1" role="tabpanel">
+            <br>
+        </div>
+        <!--/.Panel 1-->
+        <!--Panel 2-->
+        <div class="tab-pane fade" id="panel2" role="tabpanel">
+            <br>
+        </div>
+        <!--/.Panel 2-->
+        <!--Panel 3-->
+        <div class="tab-pane fade" id="panel3" role="tabpanel">
+            <br>
+        </div>
+        <!--/.Panel 3-->
+        <!--Panel 4-->
+        <div class="tab-pane fade" id="panel4" role="tabpanel">
+            <br>
+        </div>
+        <!--/.Panel 4-->
+        <!--Panel 5-->
+        <div class="tab-pane fade" id="panel5" role="tabpanel">
+            <br>
+        </div>
+        <!--/.Panel 5-->
+    </div>
+
+
+
+
+
+
+
+    <div class="panel panel-default col-xs-4">
+
+        <div class="panel-body">
+            <canvas id="line-chart1" width="1500px" height="1500px"></canvas>
+
+
+        </div>
+    </div>
+    <div class="panel panel-default col-xs-4">
+
+        <div class="panel-body">
+            <canvas id="line-chart2" width="1500px" height="1500px"></canvas>
+
+
+        </div>
+    </div>
+    <div class="panel panel-default col-xs-4">
+
+        <div class="panel-body">
+            <canvas id="line-chart3" width="1500px" height="1500px"></canvas>
+
+
+        </div>
+    </div>
+
+    <div class="panel panel-default col-xs-12">
+
+        <div class="panel-body">
+            <canvas id="line-chart4" width="1500px" height="1500px"></canvas>
+
+
+        </div>
+    </div>
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment-with-locales.min.js"></script>
+    <!-- ChartJS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+
+    <script>
+
+        $(function () {
+
+            new Chart(document.getElementById("line-chart1"), {
+                type: 'line',
+                data: {
+                    labels: ["january", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+                    datasets: [{
+                        data: [86, 114, 106, 106, 107, 111, 133, 221, 783, 2478, 3000, 3001],
+                        label: "Clients",
+                        borderColor: "#3e95cd",
+                        fill: false
+                    }
+                    ]
+                },
+                options: {
+                    title: {
+                        display: true,
+                        text: 'Clients per month'
+                    }
+                }
+            });
+
+            new Chart(document.getElementById("line-chart2"), {
+                type: 'line',
+                data: {
+                    labels: ["january", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+                    datasets: [{
+                        data: [86, 114, 106, 106, 107, 111, 133, 221, 783, 2478, 3000, 3001],
+                        label: "Reservations",
+                        borderColor: "#3e95cd",
+                        fill: false
+                    }
+                    ]
+                },
+                options: {
+                    title: {
+                        display: true,
+                        text: 'Reservations per month'
+                    }
+                }
+            });
+
+            new Chart(document.getElementById("line-chart3"), {
+                type: 'line',
+                data: {
+                    labels: ["january", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+                    datasets: [{
+                        data: [86, 114, 106, 106, 107, 111, 133, 221, 783, 2478, 3000, 3001],
+                        label: "Vehicles",
+                        borderColor: "#3e95cd",
+                        fill: false
+                    }
+                    ]
+                },
+                options: {
+                    title: {
+                        display: true,
+                        text: 'Vehicles per month'
+                    }
+                }
+            });
+
+            new Chart(document.getElementById("line-chart4"), {
+                type: 'line',
+                data: {
+                    labels: ["january", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+                    datasets: [
+                        {
+                            data: [86, 1444, 106, 106, 107, 1111, 133, 221, 783, 2478, 3000, 1001],
+                            label: "Income",
+                            borderColor: "#e8c3b9",
+                            fill: false
+                        }
+                    ]
+                },
+                options: {
+                    title: {
+                        display: true,
+                        text: 'Income '
+                    }
+                }
+            });
+
+
+        });
+    </script>
+
+{% endblock %}

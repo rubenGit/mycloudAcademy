@@ -1,0 +1,29 @@
+easy_admin:
+    entities:
+        EmployeeType:
+            class: AppBundle\Entity\EmployeeType
+            help: ''
+            list:
+                fields:
+                - { property: name }
+                - { property: description }
+
+
+                actions:
+                     - { name: 'edit', icon: 'pencil', label: '' }
+                     - { name: 'show', icon: 'search', label: '' }
+                     - { name: 'delete', icon: 'trash', label: '' }
+            show:
+                fields:
+                - { property: id }
+                - { property: name }
+                - { property: description }
+
+            form:
+                fields:
+                - { property: name }
+                - { property: description }
+
+
+
+

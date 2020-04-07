@@ -1,0 +1,1145 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use ApiPlatform\Core\Annotation\ApiResource;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
+
+/**
+ * TODO: FUNCIONALITY IMPORT FROM EXCEL OR CSV
+ */
+
+/**
+ * Cliente
+ *
+ * @ORM\Table(name="client")
+ * @ApiResource
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\ClientRepository")
+ */
+class Client
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    protected $id;
+
+    /**
+     * ••••••••••••••••••••••••••••••••••[ PERSONAL DATA INIT ]••••••••••••••••••••••••••••••••••••••••••••••••
+     */
+    /**
+     * @var string
+     * @ORM\Column(name="name", type="string", length=255, nullable=false)
+     */
+    private $name;
+    /**
+     * @var string
+     * @ORM\Column(name="surname", type="string", length=255, nullable=false)
+     */
+    private $surname;
+    /**
+     * @var string
+     * @ORM\Column(name="level_of_studies", type="string", length=255, nullable=true)
+     */
+    private $levelOfStudies;
+    /**
+     * @var string
+     * @ORM\Column(name="level_of_knowledge", type="string", length=255, nullable=true)
+     */
+    private $levelOfknowledge;
+    /**
+     * @var string
+     * @ORM\Column(name="job", type="string", length=255, nullable=true)
+     */
+    private $job;
+    /**
+     * @var string
+     * @ORM\Column(name="allergies", type="string", length=255, nullable=true)
+     */
+    private $allergies;
+    /**
+     * @var \DateTime
+     * @ORM\Column(name="birth_date", type="date", length=255, nullable=true)
+     */
+    private $birthDate;
+    /**
+     * @var string
+     * @ORM\Column(name="identification_document", type="string", length=255, nullable=false)
+     */
+    private $identificationDocument;
+    /**
+     * @var string
+     * @ORM\Column(name="identification_number", type="string", length=255, nullable=false)
+     */
+    private $identificationNumber;
+    /**
+     * @var string
+     * @ORM\Column(name="mother_tongue", type="string", length=255, nullable=true, unique=true)
+     */
+    private $motherTongue;
+    /**
+     * @var string
+     * @ORM\Column(name="province", type="string", length=255, nullable=true)
+     */
+    private $province;
+    /**
+     * @var string
+     * @ORM\Column(name="phone", type="string", length=255, nullable=true)
+     */
+    private $phone;
+    /**
+     * @var integer
+     * @ORM\Column(name="phone2", type="string", length=255, nullable=true)
+     */
+    private $phone2;
+    /**
+     * @var string
+     * @ORM\Column(name="Mail", type="string", length=255, nullable=true)
+     */
+    private $mail;
+    /**
+     * ••••••••••••••••••••••••••••••••••[ PERSONAL DATA END ]••••••••••••••••••••••••••••••••••••••••••••••••
+     */
+
+
+    /**
+     * ••••••••••••••••••••••••••••••••••[ geographical DATA INIT ]••••••••••••••••••••••••••••••••••••••••••••••••
+     */
+    /**
+     * @var string
+     * @ORM\Column(name="address", type="string", length=255, nullable=true)
+     */
+    private $address;
+    /**
+     * @var integer
+     * @ORM\Column(name="postal_code", type="string", length=255, nullable=true)
+     */
+    private $postalCode;
+    /**
+     * @var string
+     * @ORM\Column(name="location", type="string", length=255, nullable=true)
+     */
+    private $location;
+    /**
+     * @var string
+     * @ORM\Column(name="country", type="string", length=255, nullable=true)
+     */
+    private $country;
+    /**
+     * @var string
+     * @ORM\Column(name="nationality", type="string", length=255, nullable=true)
+     */
+    private $nationality;
+    /**
+     * ••••••••••••••••••••••••••••••••••[ geographicalL DATA END ]••••••••••••••••••••••••••••••••••••••••••••••••
+     */
+
+    /**
+     * ••••••••••••••••••••••••••••••••••[ FAMILY DATA INIT ]••••••••••••••••••••••••••••••••••••••••••••••••
+     */
+    /**
+     * @var string
+     * @ORM\Column(name="father_name", type="string", length=255, nullable=true)
+     */
+    private $fatherName;
+    /**
+     * @var string
+     * @ORM\Column(name="father_surname", type="string", length=255, nullable=true)
+     */
+    private $fatherSurname;
+    /**
+     * @var string
+     * @ORM\Column(name="father_phone", type="string", length=255, nullable=true)
+     */
+    private $phoneFather;
+    /**
+     * @var string
+     * @ORM\Column(name="mother_name", type="string", length=255, nullable=true)
+     */
+    private $motherName;
+    /**
+     * @var string
+     * @ORM\Column(name="mother_surname", type="string", length=255, nullable=true)
+     */
+    private $motherSurname;
+    /**
+     * @var string
+     * @ORM\Column(name="mother_phone", type="string", length=255, nullable=true)
+     */
+    private $motherPhone;
+    /**
+     * ••••••••••••••••••••••••••••••••••[ FAMILY DATA END ]••••••••••••••••••••••••••••••••••••••••••••••••
+     */
+
+
+
+    /**
+     * ••••••••••••••••••••••••••••••••••[ EXTRA INFO INIT ]••••••••••••••••••••••••••••••••••••••••••••••••
+     */
+
+    /**
+     * @var string
+     * @ORM\Column(name="time_availability", type="string", length=255, nullable=true)
+     */
+    private $timeAvailability;
+    /**
+     * @var string
+     * @ORM\Column(name="you_met_us_from", type="string", length=255, nullable=true)
+     */
+    private  $youMetUsFrom;
+    /**
+     * @var boolean
+     * @ORM\Column(name="payment", type="boolean", nullable=true)
+     */
+    private $payment;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection|Attendance[]
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Attendance", mappedBy="clients")
+     */
+    private $attendance;
+
+    /**
+     *
+     *@ORM\OneToMany(targetEntity="AppBundle\Entity\ClientType", mappedBy="client", cascade={"persist"})
+     *@ORM\JoinColumn(name="type_id", referencedColumnName="id", nullable=true)
+     */
+    private $type;
+
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection|GroupSt
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\GroupSt", mappedBy="clients")
+     */
+    private $groups;
+
+
+
+
+    /**
+     * @var string
+     * @ORM\Column(name="observations", type="string", length=255, nullable=true)
+     */
+    private  $observations;
+
+    /**
+     * @var string
+     * @ORM\Column(name="active", type="boolean", nullable=false)
+     */
+    private  $active;
+
+    /**
+     * ••••••••••••••••••••••••••••••••••[ EXTRA INFO INIT ]••••••••••••••••••••••••••••••••••••••••••••••••
+     */
+
+
+
+    /**
+     * Client constructor.
+     */
+    public function __construct()
+    {
+        $this->attendance = new ArrayCollection();
+        $this->type = new ArrayCollection();
+        $this->groups = new ArrayCollection();
+    }
+
+
+    public function __toString()
+    {
+        return (string) $this->identificationNumber.
+           ' '. $this->name .
+            ' ' . $this->surname;
+
+    }
+
+
+
+
+
+    /**
+     * LOG ****************************************
+     */
+
+    /**
+     * @var \DateTime $created
+     *
+     * @ORM\Column(name="data_created", type="datetime")
+     *
+     * @Gedmo\Timestampable(on="create")
+     * @ORM\Column(type="datetime")
+     */
+    private $dataCreated;
+
+    /**
+     * @var \DateTime $updated
+     *
+     * @ORM\Column(name="data_updated", type="datetime")
+     *
+     * @Gedmo\Timestampable(on="update")
+     * @ORM\Column(type="datetime")
+     */
+    private $dataUpdated;
+
+
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return Client
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set surname
+     *
+     * @param string $surname
+     *
+     * @return Client
+     */
+    public function setSurname($surname)
+    {
+        $this->surname = $surname;
+
+        return $this;
+    }
+
+    /**
+     * Get surname
+     *
+     * @return string
+     */
+    public function getSurname()
+    {
+        return $this->surname;
+    }
+
+    /**
+     * Set address
+     *
+     * @param string $address
+     *
+     * @return Client
+     */
+    public function setAddress($address)
+    {
+        $this->address = $address;
+
+        return $this;
+    }
+
+    /**
+     * Get address
+     *
+     * @return string
+     */
+    public function getAddress()
+    {
+        return $this->address;
+    }
+
+    /**
+     * Set birthDate
+     *
+     * @param \DateTime $birthDate
+     *
+     * @return Client
+     */
+    public function setBirthDate($birthDate)
+    {
+        $this->birthDate = $birthDate;
+
+        return $this;
+    }
+
+    /**
+     * Get birthDate
+     *
+     * @return \DateTime
+     */
+    public function getBirthDate()
+    {
+        return $this->birthDate;
+    }
+
+    /**
+     * Set postalCode
+     *
+     * @param string $postalCode
+     *
+     * @return Client
+     */
+    public function setPostalCode($postalCode)
+    {
+        $this->postalCode = $postalCode;
+
+        return $this;
+    }
+
+    /**
+     * Get postalCode
+     *
+     * @return string
+     */
+    public function getPostalCode()
+    {
+        return $this->postalCode;
+    }
+
+    /**
+     * Set location
+     *
+     * @param string $location
+     *
+     * @return Client
+     */
+    public function setLocation($location)
+    {
+        $this->location = $location;
+
+        return $this;
+    }
+
+    /**
+     * Get location
+     *
+     * @return string
+     */
+    public function getLocation()
+    {
+        return $this->location;
+    }
+
+    /**
+     * Set country
+     *
+     * @param string $country
+     *
+     * @return Client
+     */
+    public function setCountry($country)
+    {
+        $this->country = $country;
+
+        return $this;
+    }
+
+    /**
+     * Get country
+     *
+     * @return string
+     */
+    public function getCountry()
+    {
+        return $this->country;
+    }
+
+    /**
+     * Set province
+     *
+     * @param string $province
+     *
+     * @return Client
+     */
+    public function setProvince($province)
+    {
+        $this->province = $province;
+
+        return $this;
+    }
+
+    /**
+     * Get province
+     *
+     * @return string
+     */
+    public function getProvince()
+    {
+        return $this->province;
+    }
+
+    /**
+     * Set identificationDocument
+     *
+     * @param string $identificationDocument
+     *
+     * @return Client
+     */
+    public function setIdentificationDocument($identificationDocument)
+    {
+        $this->identificationDocument = $identificationDocument;
+
+        return $this;
+    }
+
+    /**
+     * Get identificationDocument
+     *
+     * @return string
+     */
+    public function getIdentificationDocument()
+    {
+        return $this->identificationDocument;
+    }
+
+    /**
+     * Set identificationNumber
+     *
+     * @param string $identificationNumber
+     *
+     * @return Client
+     */
+    public function setIdentificationNumber($identificationNumber)
+    {
+        $this->identificationNumber = $identificationNumber;
+
+        return $this;
+    }
+
+    /**
+     * Get identificationNumber
+     *
+     * @return string
+     */
+    public function getIdentificationNumber()
+    {
+        return $this->identificationNumber;
+    }
+
+    /**
+     * Set phone
+     *
+     * @param string $phone
+     *
+     * @return Client
+     */
+    public function setPhone($phone)
+    {
+        $this->phone = $phone;
+
+        return $this;
+    }
+
+    /**
+     * Get phone
+     *
+     * @return string
+     */
+    public function getPhone()
+    {
+        return $this->phone;
+    }
+
+    /**
+     * Set mobilePhone
+     *
+     * @param string $phone2
+     *
+     * @return Client
+     */
+    public function setPhone2($phone2)
+    {
+        $this->phone2 = $phone2;
+
+        return $this;
+    }
+
+    /**
+     * Get mobilePhone
+     *
+     * @return string
+     */
+    public function getPhone2()
+    {
+        return $this->phone2;
+    }
+
+    /**
+     * Set mail
+     *
+     * @param string $mail
+     *
+     * @return Client
+     */
+    public function setMail($mail)
+    {
+        $this->mail = $mail;
+
+        return $this;
+    }
+
+    /**
+     * Get mail
+     *
+     * @return string
+     */
+    public function getMail()
+    {
+        return $this->mail;
+    }
+
+    /**
+     * Set dataCreated
+     *
+     * @param \DateTime $dataCreated
+     *
+     * @return Client
+     */
+    public function setDataCreated($dataCreated)
+    {
+        $this->dataCreated = $dataCreated;
+
+        return $this;
+    }
+
+    /**
+     * Get dataCreated
+     *
+     * @return \DateTime
+     */
+    public function getDataCreated()
+    {
+        return $this->dataCreated;
+    }
+
+    /**
+     * Set dataUpdated
+     *
+     * @param \DateTime $dataUpdated
+     *
+     * @return Client
+     */
+    public function setDataUpdated($dataUpdated)
+    {
+        $this->dataUpdated = $dataUpdated;
+
+        return $this;
+    }
+
+    /**
+     * Get dataUpdated
+     *
+     * @return \DateTime
+     */
+    public function getDataUpdated()
+    {
+        return $this->dataUpdated;
+    }
+
+    /**
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param string $type
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
+
+
+
+
+    /**
+     * Set payment
+     *
+     * @param boolean $payment
+     *
+     * @return Client
+     */
+    public function setPayment($payment)
+    {
+        $this->payment = $payment;
+
+        return $this;
+    }
+
+    /**
+     * Get payment
+     *
+     * @return boolean
+     */
+    public function getPayment()
+    {
+        return $this->payment;
+    }
+
+
+
+
+    /**
+     * Add attendance
+     *
+     * @param \AppBundle\Entity\Attendance $attendance
+     *
+     * @return Client
+     */
+    public function addAttendance(\AppBundle\Entity\Attendance $attendance)
+    {
+        $this->attendance[] = $attendance;
+
+        return $this;
+    }
+
+    /**
+     * Remove attendance
+     *
+     * @param \AppBundle\Entity\Attendance $attendance
+     */
+    public function removeAttendance(\AppBundle\Entity\Attendance $attendance)
+    {
+        $this->attendance->removeElement($attendance);
+    }
+
+    /**
+     * Get attendance
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getAttendance()
+    {
+        return $this->attendance;
+    }
+
+    /**
+     * Set levelOfStudies
+     *
+     * @param string $levelOfStudies
+     *
+     * @return Client
+     */
+    public function setLevelOfStudies($levelOfStudies)
+    {
+        $this->levelOfStudies = $levelOfStudies;
+
+        return $this;
+    }
+
+    /**
+     * Get levelOfStudies
+     *
+     * @return string
+     */
+    public function getLevelOfStudies()
+    {
+        return $this->levelOfStudies;
+    }
+
+    /**
+     * Set levelOfknowledge
+     *
+     * @param string $levelOfknowledge
+     *
+     * @return Client
+     */
+    public function setLevelOfknowledge($levelOfknowledge)
+    {
+        $this->levelOfknowledge = $levelOfknowledge;
+
+        return $this;
+    }
+
+    /**
+     * Get levelOfknowledge
+     *
+     * @return string
+     */
+    public function getLevelOfknowledge()
+    {
+        return $this->levelOfknowledge;
+    }
+
+    /**
+     * Set allergies
+     *
+     * @param string $allergies
+     *
+     * @return Client
+     */
+    public function setAllergies($allergies)
+    {
+        $this->allergies = $allergies;
+
+        return $this;
+    }
+
+    /**
+     * Get allergies
+     *
+     * @return string
+     */
+    public function getAllergies()
+    {
+        return $this->allergies;
+    }
+
+    /**
+     * Set motherTongue
+     *
+     * @param string $motherTongue
+     *
+     * @return Client
+     */
+    public function setMotherTongue($motherTongue)
+    {
+        $this->motherTongue = $motherTongue;
+
+        return $this;
+    }
+
+    /**
+     * Get motherTongue
+     *
+     * @return string
+     */
+    public function getMotherTongue()
+    {
+        return $this->motherTongue;
+    }
+
+    /**
+     * Set nationality
+     *
+     * @param string $nationality
+     *
+     * @return Client
+     */
+    public function setNationality($nationality)
+    {
+        $this->nationality = $nationality;
+
+        return $this;
+    }
+
+    /**
+     * Get nationality
+     *
+     * @return string
+     */
+    public function getNationality()
+    {
+        return $this->nationality;
+    }
+
+    /**
+     * Set fatherName
+     *
+     * @param string $fatherName
+     *
+     * @return Client
+     */
+    public function setFatherName($fatherName)
+    {
+        $this->fatherName = $fatherName;
+
+        return $this;
+    }
+
+    /**
+     * Get fatherName
+     *
+     * @return string
+     */
+    public function getFatherName()
+    {
+        return $this->fatherName;
+    }
+
+    /**
+     * Set fatherSurname
+     *
+     * @param string $fatherSurname
+     *
+     * @return Client
+     */
+    public function setFatherSurname($fatherSurname)
+    {
+        $this->fatherSurname = $fatherSurname;
+
+        return $this;
+    }
+
+    /**
+     * Get fatherSurname
+     *
+     * @return string
+     */
+    public function getFatherSurname()
+    {
+        return $this->fatherSurname;
+    }
+
+    /**
+     * Set phoneFather
+     *
+     * @param string $phoneFather
+     *
+     * @return Client
+     */
+    public function setPhoneFather($phoneFather)
+    {
+        $this->phoneFather = $phoneFather;
+
+        return $this;
+    }
+
+    /**
+     * Get phoneFather
+     *
+     * @return string
+     */
+    public function getPhoneFather()
+    {
+        return $this->phoneFather;
+    }
+
+    /**
+     * Set motherName
+     *
+     * @param string $motherName
+     *
+     * @return Client
+     */
+    public function setMotherName($motherName)
+    {
+        $this->motherName = $motherName;
+
+        return $this;
+    }
+
+    /**
+     * Get motherName
+     *
+     * @return string
+     */
+    public function getMotherName()
+    {
+        return $this->motherName;
+    }
+
+    /**
+     * Set motherSurname
+     *
+     * @param string $motherSurname
+     *
+     * @return Client
+     */
+    public function setMotherSurname($motherSurname)
+    {
+        $this->motherSurname = $motherSurname;
+
+        return $this;
+    }
+
+    /**
+     * Get motherSurname
+     *
+     * @return string
+     */
+    public function getMotherSurname()
+    {
+        return $this->motherSurname;
+    }
+
+    /**
+     * Set motherPhone
+     *
+     * @param string $motherPhone
+     *
+     * @return Client
+     */
+    public function setMotherPhone($motherPhone)
+    {
+        $this->motherPhone = $motherPhone;
+
+        return $this;
+    }
+
+    /**
+     * Get motherPhone
+     *
+     * @return string
+     */
+    public function getMotherPhone()
+    {
+        return $this->motherPhone;
+    }
+
+    /**
+     * Set youMetUsFrom
+     *
+     * @param string $youMetUsFrom
+     *
+     * @return Client
+     */
+    public function setYouMetUsFrom($youMetUsFrom)
+    {
+        $this->youMetUsFrom = $youMetUsFrom;
+
+        return $this;
+    }
+
+    /**
+     * Get youMetUsFrom
+     *
+     * @return string
+     */
+    public function getYouMetUsFrom()
+    {
+        return $this->youMetUsFrom;
+    }
+
+    /**
+     * Set job
+     *
+     * @param string $job
+     *
+     * @return Client
+     */
+    public function setJob($job)
+    {
+        $this->job = $job;
+
+        return $this;
+    }
+
+    /**
+     * Get job
+     *
+     * @return string
+     */
+    public function getJob()
+    {
+        return $this->job;
+    }
+
+    /**
+     * Add type
+     *
+     * @param \AppBundle\Entity\ClientType $type
+     *
+     * @return Client
+     */
+    public function addType(\AppBundle\Entity\ClientType $type)
+    {
+        $this->type[] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Remove type
+     *
+     * @param \AppBundle\Entity\ClientType $type
+     */
+    public function removeType(\AppBundle\Entity\ClientType $type)
+    {
+        $this->type->removeElement($type);
+    }
+
+
+
+    /**
+     * @return string
+     */
+    public function getTimeAvailability()
+    {
+        return $this->timeAvailability;
+    }
+
+    /**
+     * @param string $timeAvailability
+     */
+    public function setTimeAvailability($timeAvailability)
+    {
+        $this->timeAvailability = $timeAvailability;
+    }
+
+
+
+
+
+
+    /**
+     * Set observations
+     *
+     * @param string $observations
+     *
+     * @return Client
+     */
+    public function setObservations($observations)
+    {
+        $this->observations = $observations;
+
+        return $this;
+    }
+
+    /**
+     * Get observations
+     *
+     * @return string
+     */
+    public function getObservations()
+    {
+        return $this->observations;
+    }
+
+    /**
+     * Set active
+     *
+     * @param boolean $active
+     *
+     * @return Client
+     */
+    public function setActive($active)
+    {
+        $this->active = $active;
+
+        return $this;
+    }
+
+    /**
+     * Get active
+     *
+     * @return boolean
+     */
+    public function getActive()
+    {
+        return $this->active;
+    }
+}

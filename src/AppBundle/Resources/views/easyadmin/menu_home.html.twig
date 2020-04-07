@@ -1,0 +1,172 @@
+{% extends '@EasyAdmin/default/layout.html.twig' %}
+{% set _content_title = 'Admin dashboard' %}
+{% block page_title -%}
+    {{ _content_title }}
+
+
+{%- endblock %}
+
+
+{% block content_header %}
+    <h1 class="title">{{ _content_title }}</h1>
+{% endblock %}
+
+        {% block head_stylesheets %}
+            {{ parent() }}
+            <style>
+            .blueNumber {color: #00c0ef;}
+            .sales-orders-info {color: #8c8c8c;}
+            .sales-orders-title {color: #616060}
+
+            </style>
+        {% endblock %}
+
+
+{% block content %}
+
+
+    <div class="jumbotron">
+        <div class="container">
+            <h1>Welcome</h1>
+            <h2>This is what happened in your academy</h2>
+
+        </div>
+    </div>
+
+
+    <div class="container-fluid">
+
+        <hr>
+
+        <div class="panel panel-info col-xs-12">
+
+            {{ form_start(form) }}
+
+            <div class="panel-body col-md-6 col-sm-12">
+            {{ form_row(form.startDate) }}
+            </div>
+
+            <div class="panel-body col-md-6 col-sm-12">
+            {{ form_row(form.endDate) }}
+            </div>
+
+            {{ form_end(form) }}
+
+
+
+
+
+            <div class="panel-body col-md-6 col-sm-12">
+                <div >
+                <small class="sales-orders-info">Incomes</small>
+                <h3 class="blueNumber">{{ incomeRecived }} €</h3>
+                </div>
+            </div>
+
+            <div class="panel-body col-md-6 col-sm-12">
+                <div >
+                <small class="sales-orders-info">Expenses</small>
+                    <h3 class="blueNumber">{{ expensesWithDate }} €</h3>
+                </div>
+            </div>
+
+            <div class="panel-body col-md-6 col-sm-12">
+
+                <a href="{{ path('easyadmin') }}?entity=Invoice&action=list&query=PENDING">
+                    <div >
+                        <small class="sales-orders-info">Pending invoices</small>
+                        <h3 class="blueNumber">{{ pendingInvoices }}</h3>
+                    </div>
+                </a>
+            </div>
+            <div class="panel-body col-md-6 col-sm-12">
+                <a href="{{ path('easyadmin') }}?entity=Invoice&action=search&query=PAID">
+
+                <div >
+                <small class="sales-orders-info">Bills paid</small>
+                <h3 class="blueNumber">{{ paidInvoices }}</h3>
+                </div>
+                </a>
+
+            </div>
+
+
+            <div class="panel-body col-md-6 col-sm-12">
+                <hr>
+                <a href="{{ path('easyadmin') }}?entity=Client&action=list">
+
+                    <div >
+                        <small class="sales-orders-info">Active clients</small>
+                        <h3 class="blueNumber">{{ totalClients }}</h3>
+                    </div>
+                </a>
+            </div>
+
+            <div class="panel-body col-md-6 col-sm-12">
+                <hr>
+                <a href="{{ path('easyadmin') }}?entity=Employee&action=list">
+
+                    <div >
+                        <small class="sales-orders-info">Active employees</small>
+                        <h3 class="blueNumber">{{ totalEmployees }}</h3>
+                    </div>
+                </a>
+            </div>
+
+            <div class="panel-body col-md-6 col-sm-12">
+                <a href="{{ path('easyadmin') }}?entity=GroupSt&action=list">
+
+                    <div >
+                        <small class="sales-orders-info">Groups</small>
+                        <h3 class="blueNumber">{{ totalGroups }}</h3>
+                    </div>
+                </a>
+            </div>
+
+            <div class="panel-body col-md-6 col-sm-12">
+                <a href="{{ path('easyadmin') }}?entity=Course&action=list">
+
+                    <div >
+                        <small class="sales-orders-info">Corses</small>
+                        <h3 class="blueNumber">{{ totalCourses }}</h3>
+                    </div>
+                </a>
+            </div>
+
+
+
+        </div>
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
+
+    {% block body_javascript %}
+        {{ parent() }}
+        <script>
+            $(".alert").addClass("in").fadeOut(4500);
+
+            /* swap open/close side menu icons */
+            $('[data-toggle=collapse]').click(function () {
+                // toggle icon
+                $(this).find("i").toggleClass("glyphicon-chevron-right glyphicon-chevron-down");
+            });
+
+
+        </script>
+
+
+    {% endblock %}

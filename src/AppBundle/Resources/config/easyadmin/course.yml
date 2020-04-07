@@ -1,0 +1,54 @@
+easy_admin:
+    entities:
+        Course:
+            class: AppBundle\Entity\Course
+
+            help: ''
+            list:
+                fields:
+                - { property: name}
+                - { property: academicYear}
+                - { property: type }
+                - { property: category }
+                - { property: periodicPrice }
+                - { property: priceHour }
+                - { property: discount }
+                - { property: finalPrice }
+                - { property: groups }
+                - { property: observations }
+
+
+                actions:
+                     - { name: 'edit', icon: 'pencil', label: '' }
+                     - { name: 'show', icon: 'search', label: '' }
+                     - { name: '-delete', icon: 'trash', label: '' }
+            show:
+                fields:
+                - { property: id}
+                - { property: name}
+                - { property: academicYear}
+                - { property: type }
+                - { property: category }
+                - { property: periodicPrice }
+                - { property: priceHour }
+                - { property: discount }
+                - { property: finalPrice }
+                - { property: groups }
+                - { property: observations }
+
+            form:
+                fields:
+                - { property: name}
+                - { property: academicYear}
+                - { property: type }
+                - { property: category }
+                - { property: periodicPrice }
+                - { property: priceHour }
+                - { property: discount }
+                - { property: finalPrice }
+                - { property: observations }
+
+
+
+
+

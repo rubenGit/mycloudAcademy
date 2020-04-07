@@ -1,0 +1,49 @@
+easy_admin:
+    entities:
+        User:
+            class: AppBundle\Entity\User
+            label: 'Usuarios'
+            help: ''
+            new:
+                title: "Nuevo Usuario"
+                fields:
+                - { property: email, label: 'Email', type: 'email' }
+                - { property: username, label: 'Nombre de Usuario' }
+                - { property: enabled, label: 'Habilitada' }
+                    # if administrators are allowed to edit users' passwords and roles, add this:
+                - { property: 'plainPassword', type: 'text', type_options: { required: false } }
+                - { property: 'roles', type: 'choice', type_options: { multiple: true, choices: {'EMPLEADO_GRUMSOL (VER Y EDITAR [Clientes, Vechiculos, Reservas])': 'ROLE_EMPLEADO_GRUMSOL' ,'DIRECTOR_EMPRESA': 'ROLE_DIRECTOR_EMPRESA','COMERCIAL_EMPRESA': 'ROLE_COMERCIAL_EMPRESA', 'AGENTE_TERCERO': 'ROLE_AGENTE_TERCERO','DIRECTOR_GRUMSOL (VER Y EDITAR [Todo])': 'ROLE_DIRECTOR_GRUMSOL','DIRECTOR_GRUPO_EMPRESAS (VER Y EDITAR [Todo])': 'ROLE_DIRECTOR_GRUPO_EMPRESAS' } } }
+
+            list:
+                title: "Lista Usuarios"
+                fields:
+                - { property: id, label: 'ID' }
+                - { property: email, label: 'Email', type: 'email' }
+                - { property: username, label: 'Nombre de Usuario' }
+                - { property: enabled, label: 'Habilitada'}
+                - { property: dataCreated, label: 'Fecha Creacion' }
+                - { property: dataUpdated, label: 'Fecha Actualizacion' }
+                actions:
+                     - { name: 'edit', icon: 'pencil', label: '' }
+                     - { name: 'show', icon: 'search', label: '' }
+
+            show:
+                title: "Usuario"
+                fields:
+                - { property: id, label: 'ID' }
+                - { property: email, label: 'Email', type: 'email' }
+                - { property: username, label: 'Nombre de Usuario' }
+                - { property: enabled, label: 'Habilitada'}
+                - { property: dataCreated, label: 'Fecha Creacion' }
+                - { property: dataUpdated, label: 'Fecha Actualizacion' }
+            edit:
+                title: "Editar Usuario"
+                fields:
+                - { property: email, label: 'Email', type: 'email' }
+                - { property: username, label: 'Nombre de Usuario' }
+                - { property: enabled, label: 'Habilitada'}
+                    # if administrators are allowed to edit users' passwords and roles, add this:
+                - { property: 'plainPassword', type: 'text', type_options: { required: false } }
+                - { property: 'roles', type: 'choice', type_options: { multiple: true, choices: {'EMPLEADO_GRUMSOL (VER Y EDITAR [Clientes, Vechiculos, Reservas])': 'ROLE_EMPLEADO_GRUMSOL' ,'DIRECTOR_EMPRESA': 'ROLE_DIRECTOR_EMPRESA','COMERCIAL_EMPRESA': 'ROLE_COMERCIAL_EMPRESA', 'AGENTE_TERCERO': 'ROLE_AGENTE_TERCERO','DIRECTOR_GRUMSOL (VER Y EDITAR [Todo])': 'ROLE_DIRECTOR_GRUMSOL','DIRECTOR_GRUPO_EMPRESAS (VER Y EDITAR [Todo])': 'ROLE_DIRECTOR_GRUPO_EMPRESAS' } } }
+
+

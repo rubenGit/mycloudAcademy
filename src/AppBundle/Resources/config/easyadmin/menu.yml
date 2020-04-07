@@ -1,0 +1,64 @@
+easy_admin:
+    design:
+
+        menu:
+            - { label: 'Home', route: 'init_home', icon: 'home', default: true }
+#            - { label: 'Dashboard', route: 'dashboard', icon: 'dashboard'}
+
+
+            -
+                label: 'Personal'
+                children:
+                    -
+                        entity: 'Client'
+                        icon: 'user'
+                    -
+                        entity: 'ClientType'
+                        icon: 'user'
+                    -
+                        entity: 'Employee'
+                        icon: 'user'
+                    -
+                        entity: 'EmployeeType'
+                        icon: 'user'
+
+
+
+            -
+                label: 'Organization'
+                children:
+
+                    -
+                        entity: 'Course'
+                        icon: 'user'
+                    -
+                        entity: 'GroupSt'
+                        icon: 'user'
+                    -
+                        entity: 'Classroom'
+                        icon: 'user'
+                    -
+                        entity: 'Attendance'
+                        icon: 'user'
+                    -
+                        entity: 'TimeTable'
+                        icon: 'user'
+
+
+
+            -
+                label: 'Finance'
+                children:
+                    -
+                        entity: 'Expense'
+                        icon: 'adn'
+                    -
+                        entity: 'Income'
+                        icon: 'medium'
+                    -
+                        entity: 'Invoice'
+                        icon: 'adn'
+
+
+
+            - { entity: User, label: 'Usuarios', icon: 'user'}

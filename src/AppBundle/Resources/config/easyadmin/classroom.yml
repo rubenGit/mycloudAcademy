@@ -1,0 +1,40 @@
+easy_admin:
+    entities:
+        Classroom:
+            class: AppBundle\Entity\Classroom
+            help: ''
+            list:
+                fields:
+                - { property: name}
+                - { property: capacity}
+                - { property: external }
+                - { property: groups }
+                - { property: observations }
+
+
+                actions:
+                     - { name: 'edit', icon: 'pencil', label: '' }
+                     - { name: 'show', icon: 'search', label: '' }
+                     - { name: 'delete', icon: 'trash', label: '' }
+            show:
+                fields:
+                - { property: id }
+                - { property: name }
+                - { property: capacity }
+                - { property: external }
+                - { property: groups }
+                - { property: observations }
+
+
+            form:
+                fields:
+                - { property: name }
+                - { property: capacity }
+                - { property: external }
+                - { property: observations }
+
+
+
+
+
+

@@ -1,0 +1,72 @@
+api:
+    resource: '.'
+    type:     'api_platform'
+    prefix:   'api'
+
+app:
+  resource: '@AppBundle/Controller/'
+  type: annotation
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+fos_oauth_server_token:
+    resource: "@FOSOAuthServerBundle/Resources/config/routing/token.xml"
+
+fos_oauth_server_authorize:
+    resource: "@FOSOAuthServerBundle/Resources/config/routing/authorize.xml"
+
+
+easy_admin_bundle:
+    resource: "@AppBundle/Controller/EasyAdmin/AdminController.php"
+    type:     annotation
+    prefix:   /backend
+
+
+#USER
+api_me:
+    path: '/api/me'
+    methods: ['GET']
+    defaults:
+        _controller: 'AppBundle:User:me'
+        _api_resource_class: 'AppBundle\Entity\User'
+        _api_collection_operation_name: 'me'
+
+send_reset_password:
+    path: '/api/reset-password'
+    methods: ['POST']
+    defaults:
+        _controller: 'AppBundle:User:sendResetPassword'
+
+reset_password:
+    path: '/api/reset-password/{token}'
+    methods: ['GET']
+    defaults:
+        _controller: 'AppBundle:User:resetPassword'
+
+#HWIOAuthBundle routes
+hwi_oauth_security:
+    resource: "@HWIOAuthBundle/Resources/config/routing/login.xml"
+    prefix: /api/login
+
+hwi_oauth_connect:
+    resource: "@HWIOAuthBundle/Resources/config/routing/connect.xml"
+    prefix: /api/login
+
+hwi_oauth_redirect:
+    resource: "@HWIOAuthBundle/Resources/config/routing/redirect.xml"
+    prefix:   /api/login
+
+
+
+oauth_login:
+    path: /oauth/v2/token
+    methods: ['GET', 'POST']
+    defaults:
+        _controller: 'AppBundle:Login:getToken'
+
+unsubscribe_user:
+    path: /api/unsubscribe
+    methods: ['GET', 'POST']
+    defaults:
+        _controller: 'AppBundle:User:unsubscribe'
